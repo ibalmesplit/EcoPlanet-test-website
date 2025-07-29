@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Monitoring – EcoPlanet</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .section {
+      margin: 20px auto;
+      max-width: 800px;
+      background: #ffffff;
+      border: 2px solid #c8e6c9;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    .monitor-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .monitor-table th, .monitor-table td {
+      border: 1px solid #c8e6c9;
+      padding: 10px;
+      text-align: left;
+    }
+
+    .monitor-table th {
+      background-color: #a5d6a7;
+      color: #1b5e20;
+    }
+
+    canvas {
+      margin-top: 20px;
+      background-color: #e8f5e9;
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    .navigation {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      background-color: #e4f5e8;
+      padding: 15px 0;
+      flex-wrap: wrap;
+    }
+
+.navigation a {
+  text-decoration: none;
+  color: #2e7d32;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.navigation a:hover {
+  background-color: #c8e6c9;
+}
+footer {
+  background-color: #a5d6a7;
+  padding: 20px;
+  color: #1b5e20;
+}
+
+footer h3 {
+  margin-top: 0;
+}
+
+footer ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+footer li {
+  margin: 8px 0;
+}
+
+footer i {
+  margin-right: 8px;
+}
+
+  </style>
+</head>
+<body>
+
+<nav class="navigation">
+    <a href="homepage.html">Home</a>
+    <a href="events.html">Events</a>
+    <a href="monitoring.html">Monitoring</a>
+    <a href="donation.html">Make a Donation</a>
+    <a href="cabinet.html">Cabinet</a>
+  </nav>
+
+
+  <header>
+    <h1>🌍 Environmental Monitoring</h1>
+  </header>
+
+  <main>
+    <div class="section">
+      <h2>🌬️ Air Pollution Levels Over Time</h2>
+      <canvas id="airPollutionChart" width="700" height="300"></canvas>
+    </div>
+
+    <div class="section" style="margin-bottom: 70px;">
+      <h2>🗑️ Areas with Highest Waste Disposal</h2>
+      <table class="monitor-table">
+        <thead>
+          <tr>
+            <th>Location</th>
+            <th>Waste Level (tons/month)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Industrial Zone A</td><td>145</td></tr>
+          <tr><td>Central City</td><td>112</td></tr>
+          <tr><td>Harbor District</td><td>98</td></tr>
+          <tr><td>Riverbank Area</td><td>90</td></tr>
+          <tr><td>Mountain Village</td><td>70</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <footer>
+    <h3>Contact Us</h3>
+    <ul>
+      <li><i class="fas fa-phone"></i> Konus Bagymzhan — 8 702 042 5610</li>
+      <li><i class="fas fa-phone"></i> Sabit Yerkin — 8 705 388 9612</li>
+      <li><i class="fas fa-envelope"></i> splitfxtop@gmail.com</li>
+    </ul>
+  </footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctx = document.getElementById('airPollutionChart').getContext('2d');
+    const chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+        datasets: [{
+          label: 'Air Pollution (PM2.5 μg/m³)',
+          data: [42, 38, 35, 30, 28],
+          backgroundColor: 'rgba(102, 187, 106, 0.2)',
+          borderColor: '#388e3c',
+          borderWidth: 2,
+          tension: 0.3,
+          fill: true,
+          pointBackgroundColor: '#2e7d32'
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: false,
+            title: {
+              display: true,
+              text: 'PM2.5 μg/m³',
+              color: '#1b5e20'
+            }
+          },
+          x: {
+            title: {
+              display: true,
+              text: 'Month',
+              color: '#1b5e20'
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            labels: {
+              color: '#1b5e20'
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

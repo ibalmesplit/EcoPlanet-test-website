@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Donate – EcoPlanet</title>
+  <meta name="description" content="Support EcoPlanet with Kaspi or Stripe donations.">
+  <script src="script.js"></script>
+  <style>
+
+    .navigation {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  background-color: #e4f5e8;
+  padding: 15px 0;
+  flex-wrap: wrap;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: #2e7d32;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.navigation a:hover {
+  background-color: #c8e6c9;
+}
+
+.donation-link {
+  background-color: #66bb6a;
+  color: white;
+}
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f8e9;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #2e7d32;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .donation-container {
+      max-width: 800px;
+      margin: 30px auto;
+      background-color: #ffffff;
+      border: 2px solid #c8e6c9;
+      border-radius: 12px;
+      padding: 30px;
+    }
+
+    .donation-container h2 {
+      color: #2e7d32;
+    }
+
+    .donation-form input,
+    .donation-form select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
+
+    .donate-button, .kaspi-button {
+      background-color: #66bb6a;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1em;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .donate-button:hover, .kaspi-button:hover {
+      background-color: #388e3c;
+    }
+
+    .payment-methods {
+      margin-top: 20px;
+    }
+
+    .qr {
+      width: 200px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+<nav class="navigation">
+    <a href="homepage.html">Home</a>
+    <a href="events.html">Events</a>
+    <a href="monitoring.html">Monitoring</a>
+    <a href="donation.html">Make a Donation</a>
+    <a href="cabinet.html">Cabinet</a>
+  </nav>
+
+
+  <header>
+    <h1>🌿 Make a Donation</h1>
+  </header>
+
+  <main>
+    <div class="donation-container">
+      <h2>💚 Support Our Mission</h2>
+
+      <div class="donation-form">
+        <form id="donationForm">
+          <label for="fullname">Full Name:</label>
+          <input type="text" id="fullname" required />
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" required />
+
+          <label for="amount">Amount (<span id="currencyLabel">KZT</span>):</label>
+          <input type="number" id="amount" placeholder="Enter amount" required />
+
+          <div class="payment-methods">
+            <div id="kaspiSection" style="display: none;">
+              <p>📱 Send your donation via Kaspi QR:</p>
+              <img src="https://yourdomain.kz/kaspi-qr.png" alt="Kaspi QR" class="qr" />
+              <p>Or transfer manually to: <strong>Kaspi Gold: +7 701 123 4567</strong></p>
+              <button type="button" class="kaspi-button" onclick="alert('Thank you for donating via Kaspi!')">I Paid with Kaspi</button>
+            </div>
+
+            <div id="stripeSection" style="display: none;">
+              <p>🌍 Secure international donation with card:</p>
+              <button type="button" class="donate-button" onclick="handleStripe()">Donate with Card</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    async function detectCountry() {
+      try {
+        const response = await fetch('https://ipapi.co/json/');
+        const data = await response.json();
+        const country = data.country_name;
+        const currencyLabel = document.getElementById('currencyLabel');
+
+        if (country === 'Kazakhstan') {
+          document.getElementById('kaspiSection').style.display = 'block';
+          currencyLabel.innerText = 'KZT';
+        } else {
+          document.getElementById('stripeSection').style.display = 'block';
+          currencyLabel.innerText = 'USD';
+        }
+      } catch (e) {
+        console.error("Failed to detect location:", e);
+        // fallback: show Stripe
+        document.getElementById('stripeSection').style.display = 'block';
+        document.getElementById('currencyLabel').innerText = 'USD';
+      }
+    }
+
+    function handleStripe() {
+      // You can use real Stripe redirect or Checkout integration here
+      alert("Redirecting to Stripe Checkout...");
+      // location.href = "/stripe-checkout";
+    }
+
+    detectCountry();
+  </script>
+</body>
+</html>

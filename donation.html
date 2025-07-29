@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eco-Volunteering Events</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .navigation {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  background-color: #e4f5e8;
+  padding: 15px 0;
+  flex-wrap: wrap;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: #2e7d32;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.navigation a:hover {
+  background-color: #c8e6c9;
+}
+footer {
+  background-color: #a5d6a7;
+  padding: 20px;
+  color: #1b5e20;
+}
+
+footer h3 {
+  margin-top: 0;
+}
+
+footer ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+footer li {
+  margin: 8px 0;
+}
+
+footer i {
+  margin-right: 8px;
+}
+  </style>
+</head>
+<body class="bg-green-50 font-sans text-green-800">
+  <nav class="navigation">
+    <a href="homepage.html">Home</a>
+    <a href="events.html">Events</a>
+    <a href="monitoring.html">Monitoring</a>
+    <a href="donation.html">Make a Donation</a>
+    <a href="cabinet.html">Cabinet</a>
+  </nav>
+
+  <div class="max-w-4xl mx-auto px-6 py-12">
+    <header class="text-center mb-10">
+      <h1 class="text-4xl font-bold mb-2">🌿 Eco-Volunteering Organisations</h1>
+      <p class="text-lg text-green-700">Make a donation to improve our recycling centers and eco organisations</p>
+    </header>
+
+    <section class="grid gap-6">
+      <!-- Event Card Template -->
+      <div class="bg-white rounded-2xl shadow-md border border-green-200 p-6 hover:shadow-lg transition" id="event-1">
+        <h2 class="text-2xl font-semibold mb-2">Recycling centre Aktau</h2>
+        <p class="mb-1"><strong>Recycling center of volunteering youth</strong></p>
+        <p class="mb-2">📍 Aktau 19 microdistrict 26 house</p>
+        <p class="text-gray-500 mb-3">👥 Participants: <span id="count-1">23</span></p>
+        <a href="donation-page.html"><button id="btn-1"
+          class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-xl transition">
+          Make a Donation
+        </button></a>
+        <p class="mt-3 text-green-600 font-medium hidden" id="joined-1">✅ Thank you for the donation</p>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-md border border-green-200 p-6 hover:shadow-lg transition" id="event-1">
+        <h2 class="text-2xl font-semibold mb-2">Waste collecting organisation</h2>
+        <p class="mb-1"><strong>Waste collecting center that deals with pollution</strong></p>
+        <p class="mb-2">📍 Aktau 30 microdistrict 36 building</p>
+        <p class="text-gray-500 mb-3">👥 Participants: <span id="count-1">64</span></p>
+        <a href="donation-page.html"><button id="btn-1"
+          class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-xl transition">
+          Make a Donation
+        </button></a>
+        <p class="mt-3 text-green-600 font-medium hidden" id="joined-1">✅ Thank you for the donation</p>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-md border border-green-200 p-6 hover:shadow-lg transition" id="event-1">
+        <h2 class="text-2xl font-semibold mb-2">Clean water organisation</h2>
+        <p class="mb-1"><strong>Organisation that collect garbage from water bodies</strong></p>
+        <p class="mb-2">📍 Aktau 33/14</p>
+        <p class="text-gray-500 mb-3">👥 Participants: <span id="count-1">35</span></p>
+        <a href="donation-page.html"><button id="btn-1"
+          class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-xl transition">
+          Make a Donation
+        </button></a>
+        <p class="mt-3 text-green-600 font-medium hidden" id="joined-1">✅ Thank you for the donation</p>
+      </div>
+    </section>
+  </div>
+  <footer>
+    <h3>Contact Us</h3>
+    <ul>
+      <li><i class="fas fa-phone"></i> Konus Bagymzhan — 8 702 042 5610</li>
+      <li><i class="fas fa-phone"></i> Sabit Yerkin — 8 705 388 9612</li>
+      <li><i class="fas fa-envelope"></i> splitfxtop@gmail.com</li>
+    </ul>
+  </footer>
+
+</body>
+</html>
